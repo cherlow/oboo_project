@@ -76,7 +76,7 @@
 </head>
 
 <body>
-     
+
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -97,7 +97,11 @@
 
                     </li>
                     <li class="">
-                        <a href="/crimes"> <i class="menu-icon fa fa-cogs"></i>Crimes</a>
+                        <a href=""> <i class="menu-icon fa fa-users"></i>Users</a>
+
+                    </li>
+                    <li class="">
+                        <a href="/crimes"> <i class="menu-icon fa fa-cogs"></i>Crimes Types</a>
 
                     </li>
 
@@ -140,14 +144,14 @@
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
 
-                         
+
 
                             <a onclick="event.preventDefault(); 
                             document.getElementById('logout-form').submit();
                             " class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
                         </div>
                     </div>
@@ -157,11 +161,11 @@
         </header>
         <!-- /#header -->
         <!-- Content -->
-      
 
-            @yield('content')
 
-      
+        @yield('content')
+
+
         <!-- /.content -->
         <div class="clearfix"></div>
         <!-- Footer -->
@@ -209,7 +213,6 @@
 
     <!--Local Stuff-->
     <script>
-
         jQuery(document).ready(function($) {
             "use strict";
 
@@ -402,4 +405,5 @@
     </script>
 </body>
 @toastr_render
+
 </html>

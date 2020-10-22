@@ -110,4 +110,12 @@ class ReportController extends Controller
         $reports = auth()->user()->reports;
         return view('user.myreports')->with('reports', $reports);
     }
+
+    public function reportdetails(Report $report)
+    {
+
+        // return $report;
+
+        return view("user.reportdetails")->with("report", $report);
+    }
 }

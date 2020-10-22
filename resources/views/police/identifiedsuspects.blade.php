@@ -42,28 +42,32 @@
                         <th>Identifier name</th>
                         <th>Last Seen</th>
                         <th>details</th>
+                        <th>action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @php
-                        $count=1;
+                    $count=1;
                     @endphp
                     @foreach ($identifications as $identification)
                     <tr>
-                    <td class="serial">{{$count}}</td>
+                        <td class="serial">{{$count}}</td>
                         <td class="avatar">
                             <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="/uploads/{{$identification->criminal->pic}}" alt=""></a>
+                                <a href="#"><img class="rounded-circle"
+                                        src="/uploads/{{$identification->criminal->pic}}" alt=""></a>
                             </div>
                         </td>
-                    <td> {{ $identification->criminal->name }} </td>
-                    <td> <span class="name">{{$identification->user->name}}</span> </td>
-                    <td> <span class="product">{{$identification->last_seen}}</span> </td>
-                    <td><span class="">{{$identification->details}}</span></td>
-
+                        <td> {{ $identification->criminal->name }} </td>
+                        <td> <span class="name">{{$identification->user->name}}</span> </td>
+                        <td> <span class="product">{{$identification->last_seen}}</span> </td>
+                        <td><span class="">{{  Str::limit($identification->details, 30, $end='...')   }}</span></td>
+                        <td>
+                            <a href="/identifiedsuspect/{{ $identification->id }}" class="btn btn-success">view</a>
+                        </td>
                     </tr>
                     @php
-                        $count++;
+                    $count++;
                     @endphp
                     @endforeach
 

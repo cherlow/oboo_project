@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Criminal;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,9 +27,10 @@ class HomeController extends Controller
         if (auth()->user()->role == 1) {
             return view('home');
         } elseif (auth()->user()->role == 3) {
-            return view('user.home');
-        }
-        elseif (auth()->user()->role == 2) {
+
+            $criminals = Criminal::all();
+            return view('user.home')->with("criminals", $criminals);
+        } elseif (auth()->user()->role == 2) {
             return view('police.home');
         }
     }

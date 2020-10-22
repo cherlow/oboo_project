@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Crime;
+use App\Criminal;
 use Illuminate\Http\Request;
 
 class CrimeController extends Controller
@@ -87,5 +88,9 @@ class CrimeController extends Controller
     public function destroy(Crime $crime)
     {
         //
+    }
+
+    public function crimereportshow(Criminal $criminal)
+    {
     }
 }

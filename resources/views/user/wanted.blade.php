@@ -17,7 +17,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
 
-                            <li class="active">Wanted Criminals</li>
+                            <li class="active">Wanted Suspects</li>
 
                         </ol>
                     </div>
@@ -29,7 +29,7 @@
 <div class="content">
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">Wanted Criminals</strong>
+            <strong class="card-title">Wanted Suspects</strong>
         </div>
         <div class="table-stats order-table ov-h">
             <table class="table ">

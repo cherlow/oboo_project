@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Crime;
 use App\Criminal;
+use App\Report;
 use Illuminate\Http\Request;
 
 class CriminalController extends Controller
@@ -121,25 +122,65 @@ class CriminalController extends Controller
     public function wanteddetails(Criminal $criminal)
     {
 
-        return view('user.criminaldetails')->with('criminal',$criminal);
-        
+        if (auth()->user()->role == 2) {
 
+            return view('police.crimedetails')->with('criminal', $criminal);
+        } else {
+            return view('user.criminaldetails')->with('criminal', $criminal);
+        }
     }
 
-    public function crimerecords(){
+    public function crimerecords()
+    {
 
         return view('police.crimerecords');
     }
 
-    public function search(Request $request){
- $records= Criminal::search($request->input('search'))->get();
+    public function search(Request $request)
+    {
+        $records = Criminal::search($request->input('search'))->get();
 
- if(count($records)<1){
-toastr()->info("no records found....please refine your search");
-    return redirect('/crimerecords');
- }
+        if (count($records) < 1) {
+            toastr()->info("no records found....please refine your search");
+            return redirect('/crimerecords');
+        }
 
- return view('police.crimerecordsshow')->with('criminals',$records);
-        
+        return view('police.crimerecordsshow')->with('criminals', $records);
+    }
+
+    public function changestatus(Criminal $criminal)
+    {
+
+        if ($criminal->is_loose == 1) {
+
+            // archiving
+
+            $criminal->is_loose = 0;
+
+            $criminal->save();
+
+            toastr()->success('criminal record archived successfully');
+
+            return redirect("/wanted/" . $criminal->id);
+        } else {
+            // added to the wanted watch list
+
+            $criminal->is_loose = 1;
+
+            $criminal->save();
+
+            toastr()->success('criminal record added to the wanted watch list');
+
+            return redirect("/wanted/" . $criminal->id);
+        }
+    }
+
+    public function crimereportshow(Report $report)
+    {
+
+
+
+
+        return view("police.crimereportshow")->with("report", $report);
     }
 }

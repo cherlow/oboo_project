@@ -68,7 +68,7 @@
                         <td>{{\Carbon\Carbon::parse($criminal->created_at)->diffForhumans() }}</td>
 
                         <td>
-                            <a class="btn btn-success" href=""> View Details</a>
+                            <a class="btn btn-success" href="/wanted/{{ $criminal->id }}"> View Details</a>
                         </td>
                     </tr>
                     @php

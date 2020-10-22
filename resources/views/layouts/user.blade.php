@@ -93,7 +93,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/wanted"> <i class="menu-icon fa fa-book"></i>Wanted Criminals</a>
+                        <a href="/wanted"> <i class="menu-icon fa fa-book"></i>Wanted Suspects</a>
 
                     </li>
                     <li class="">
@@ -143,7 +143,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
+
 
 
 
@@ -152,9 +152,9 @@
                             <a onclick="event.preventDefault(); 
                             document.getElementById('logout-form').submit();
                             " class="nav-link" href="#"><i class="fa fa-power-off"></i>Logout</a>
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
                         </div>
                     </div>

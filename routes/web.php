@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    if (auth()) {
+
+        return redirect("/home");
+    } else {
+        return view('welcome');
+    }
 });
 
 Auth::routes();
@@ -27,13 +33,19 @@ Route::get('/crimes', 'CrimeController@index');
 Route::get('/reportcrime', 'ReportController@create');
 Route::get('/reportedcrimes', 'ReportController@reportedcrimes');
 Route::get('/myreports', 'ReportController@myreports');
+
+
 Route::get('/policewanted', 'CriminalController@index');
+Route::get('/changestatus/{criminal}', 'CriminalController@changestatus');
+Route::get('/crimereportshow/{report}', 'CriminalController@crimereportshow');
 Route::post('/search', 'CriminalController@search');
 Route::get('/newcrime', 'CriminalController@create');
 Route::post('/newcrime', 'CriminalController@store');
 Route::get('/crimerecords', 'CriminalController@crimerecords');
 Route::get('/wanted', 'CriminalController@wanted');
 Route::get('/wanted/{criminal}', 'CriminalController@wanteddetails');
+Route::get('/identifiedsuspect/{identification}', 'IdentificationController@identifiedshow');
+Route::get('/user/reportdetails/{report}', 'ReportController@reportdetails');
 
 Route::post('/report', 'ReportController@store');
 Route::post('/identify', 'IdentificationController@store');

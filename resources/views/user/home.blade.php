@@ -5,82 +5,75 @@
 <!-- Animated -->
 <div class="content">
     <div class="animated fadeIn">
-        <!-- Widgets  -->
-        {{-- <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-1">
-                                <i class="pe-7s-cash"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text">$<span class="count">23569</span></div>
-                                    <div class="stat-heading">Revenue</div>
-                                </div>
+
+
+        <div class="orders">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="box-title">Wanted Suspects </h4>
+                        </div>
+                        <div class="card-body--">
+                            <!-- /.table-stats -->
+
+                            <div class="table-stats order-table ov-h">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">#</th>
+                                            <th class="avatar">Avatar</th>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>Police Station</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $crime=1;
+                                        @endphp
+                                        @foreach ($criminals as $criminal)
+
+                                        <tr>
+                                            <td class="serial">{{$crime}}</td>
+                                            <td class="avatar">
+                                                <div class="round-img">
+                                                    <a href="#"><img class="rounded-circle"
+                                                            src="/uploads/{{$criminal->pic}}" alt=""></a>
+                                                </div>
+                                            </td>
+                                            <td> {{ $criminal->national_id }} </td>
+                                            <td> <span class="name">{{$criminal->name}}</span> </td>
+                                            <td> <span class="product">{{$criminal->age}}</span> </td>
+                                            <td><span class="">{{$criminal->gender}}</span></td>
+                                            <td><span class="">{{$criminal->station->name}}</span></td>
+                                            <td>
+
+                                                <a href="/wanted/{{ $criminal->id }}"> <span
+                                                        class="badge badge-complete">view
+                                                        details</span></a>
+
+                                            </td>
+                                        </tr>
+                                        @php
+                                        $crime++;
+                                        @endphp
+                                        @endforeach
+
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div> <!-- /.card -->
+                </div> <!-- /.col-lg-8 -->
 
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-2">
-                                <i class="pe-7s-cart"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">3435</span></div>
-                                    <div class="stat-heading">Sales</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- /.col-md-4 -->
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-3">
-                                <i class="pe-7s-browser"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">349</span></div>
-                                    <div class="stat-heading">Templates</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-five">
-                            <div class="stat-icon dib flat-color-4">
-                                <i class="pe-7s-users"></i>
-                            </div>
-                            <div class="stat-content">
-                                <div class="text-left dib">
-                                    <div class="stat-text"><span class="count">2986</span></div>
-                                    <div class="stat-heading">Clients</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
-        <h2 class="text-center">Dashboard statistics go here..</h2>
+        </div>
 
 
 

@@ -34,29 +34,29 @@
                 @csrf
                 <div class="form-group"><label for="company" class=" form-control-label">Crime</label>
                     <select name="crime" id="select" class="form-control" required>
-                      @foreach ($crimes as $crime)
-                          
-                    <option value="{{$crime->id}}">{{$crime->name}}</option>
-                      @endforeach
-                        
+                        @foreach ($crimes as $crime)
+
+                        <option value="{{$crime->id}}">{{$crime->name}}</option>
+                        @endforeach
+
                     </select>
                 </div>
                 <div class="form-group"><label for="company" class=" form-control-label">Station to report</label>
                     <select name="station" id="select" class="form-control" required>
                         @foreach ($stations as $station)
-                            
-                    <option value="{{$station->id}}">{{$station->name}}</option>
+
+                        <option value="{{$station->id}}">{{$station->name}}</option>
                         @endforeach
-                       
+
                     </select>
                 </div>
                 <div class="form-group"><label for="company" class=" form-control-label">Crime Location</label><input
-                        type="text" name="location" id="company" placeholder="Enter your company name"
+                        type="text" name="location" id="company" placeholder="Enter the crime location"
                         class="form-control" required></div>
 
                 <div class="form-group"><label for="company" class=" form-control-label">Crime Details</label>
-                    <textarea name="details" id="textarea-input" rows="9" placeholder="Content..."
-                        class="form-control" required></textarea>
+                    <textarea name="details" id="textarea-input" rows="9" placeholder="Content..." class="form-control"
+                        required></textarea>
                 </div>
                 <button class="btn btn-dark" type="submit">Submit</button>
             </form>

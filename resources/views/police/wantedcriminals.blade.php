@@ -18,7 +18,7 @@
                         <ol class="breadcrumb text-right">
                             <li><a href="#">Dashboard</a></li>
 
-                            <li class="active">Wanted Criminals</li>
+                            <li class="active">Wanted Suspects</li>
 
                         </ol>
                     </div>
@@ -30,7 +30,7 @@
 <div class="content">
     <div class="card">
         <div class="card-header">
-            <strong class="card-title">Wanted Criminals</strong>
+            <strong class="card-title">Wanted Suspects</strong>
         </div>
         <div class="table-stats order-table ov-h">
             <table class="table ">
@@ -65,10 +65,8 @@
                         <td><span class="">{{$criminal->gender}}</span></td>
                         <td><span class="">{{$criminal->station->name}}</span></td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#edit{{$criminal->id}}" class=" text-primary">
-                                <i class="fa fa-edit"></i></a>
-                            <a href="#" class="text-success"> <i class="fa fa-eye"></i></a>
-                            <a href="#" class="text-danger"> <i class="fa fa-trash"></i></a>
+                            <a href="/wanted/{{ $criminal->id }}" class="btn btn-success">view</a>
+
                         </td>
                     </tr>
                     @php

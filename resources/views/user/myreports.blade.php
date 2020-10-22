@@ -41,6 +41,8 @@
                         <th scope="col">Location</th>
                         <th scope="col"> Details</th>
                         <th scope="col"> Date</th>
+                        <th scope="col"> Actions</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -54,8 +56,12 @@
 
                         <td>{{$report->crime->name}}</td>
                         <td>{{$report->location}}</td>
-                        <td>{{$report->details}}</td>
+                        <td>
+                            {{ Str::limit($report->details, 30, $end='...')  }}
+                        </td>
                         <td>{{\Carbon\Carbon::parse($report->created_at)->diffForhumans() }}</td>
+                        <td><a href="/user/reportdetails/{{ $report->id }}" class="btn btn-success"> View</a></td>
+
                     </tr>
                     @php
                     $count++;
