@@ -42,7 +42,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Location</th>
                             <th scope="col">Number of Police</th>
-                            <th scope="col">Users</th>
+                            {{-- <th scope="col"></th> --}}
                             <th scope="col">Reported Cases</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -58,13 +58,10 @@
                             <td>{{$station->name}}</td>
                             <td>{{$station->location}}</td>
                             <td>{{count($station->users->where('role',2))}}</td>
-                            <td>{{count($station->users->where('role',3))}}</td>
+                            {{-- <td>{{count($station->users->where('role',3))}}</td> --}}
                             <td>{{count($station->reports)}}</td>
                             <td>
-                                <a href="#" data-toggle="modal" data-target="#edit{{$station->id}}"
-                                    class=" text-primary"> <i class="fa fa-edit"></i></a>
-                                <a href="#" class="text-success"> <i class="fa fa-eye"></i></a>
-                                <a href="#" class="text-danger"> <i class="fa fa-trash"></i></a>
+                                <a href="/stations/{{ $station->id }}" class="btn btn-success">View</a>
                             </td>
                         </tr>
                         @php

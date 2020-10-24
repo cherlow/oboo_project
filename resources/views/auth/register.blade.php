@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Digital Policing</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <meta name="description" content="Police Diary">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
@@ -31,15 +31,17 @@
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 </head>
 
-<body class="bg-dark">
+<body class="bg-light">
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
-                    <a href="index.html">
+                    {{-- <a href="index.html">
                         <img class="align-content" src="images/logo.png" alt="">
-                    </a>
+                    </a> --}}
+                    <h2>Police Diary</h2>
+
                 </div>
                 <div class="login-form">
                     <form method="POST" action="{{ route('register') }}">

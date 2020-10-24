@@ -90,7 +90,12 @@ class CrimeController extends Controller
         //
     }
 
-    public function crimereportshow(Criminal $criminal)
+    public function crimedelete(Crime $crime)
     {
+        $crime->delete();
+
+        toastr()->success($crime->name . ' deleted successfully');
+
+        return redirect("/crimes");
     }
 }

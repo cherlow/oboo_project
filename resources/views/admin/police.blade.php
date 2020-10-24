@@ -38,7 +38,7 @@
 
 
         </div>
-        <div class="card-body--">
+        <div class="card-body">
             <div class="table-stats order-table ov-h">
                 <table class="table ">
                     <thead>
@@ -71,10 +71,10 @@
                             <td> <span class="product">{{$police->station->name}}</span> </td>
                             <td>{{$police->email}}</td>
                             <td>
-                                <a href="#" data-toggle="modal" data-target="#edit{{$police->id}}"
-                                    class=" text-primary"> <i class="fa fa-edit"></i></a>
-                                <a href="#" class="text-success"> <i class="fa fa-eye"></i></a>
-                                <a href="#" class="text-danger"> <i class="fa fa-trash"></i></a>
+
+                                <button class="btn btn-success" data-toggle="modal"
+                                    data-target="#l{{ $police->id }}mediumModal">Transfer</button>
+
                             </td>
                         </tr>
                         @php
@@ -146,4 +146,63 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+{{-- loop modals here --}}
+
+
+@foreach ($polices as $police)
+
+<div class="modal fade " id="l{{ $police->id }}mediumModal" tabindex="-1" role="dialog"
+    aria-labelledby="mediumModalLabel" style="display: none;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">Transfer {{ $police->name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+
+                    <div class="card-body card-block">
+                        <form id="station-form{{ $police->id }}" action="/transferpolice/{{ $police->id }}"
+                            method="post">
+                            @csrf
+
+
+
+                            <div class="form-group"><label for="vat" class=" form-control-label">Station</label>
+                                <select id="select" class="form-control" name="station" required>
+                                    @foreach ($stations as $station)
+
+                                    <option value="{{$station->id}}">{{$station->name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" onclick="event.preventDefault();
+                document.getElementById('station-form{{ $police->id }}').submit();"
+                    class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
+
 @endsection

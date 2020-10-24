@@ -18,4 +18,10 @@ class Station extends Model
     {
         return $this->hasMany(Report::class);
     }
+
+
+    public function criminals()
+    {
+        return $this->hasMany(Criminal::class);
+    }
 }

@@ -37,13 +37,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function station(){
+    public function station()
+    {
         return $this->belongsTo(Station::class);
     }
 
-    public function reports(){
+    public function reports()
+    {
         return $this->hasMany(Report::class);
     }
-
-    
+    public function identifications()
+    {
+        return $this->hasMany(Identification::class);
+    }
 }

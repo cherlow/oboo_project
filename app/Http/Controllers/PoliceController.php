@@ -17,9 +17,9 @@ class PoliceController extends Controller
     public function index()
     {
         $stations = Station::all();
-        $polices=User::where('role',2)->get();
+        $polices = User::where('role', 2)->get();
 
-        return view('admin.police')->with('stations', $stations)->with('polices',$polices);
+        return view('admin.police')->with('stations', $stations)->with('polices', $polices);
     }
 
     /**
@@ -59,7 +59,7 @@ class PoliceController extends Controller
         $user->save();
         toastr()->success('Police Officer Created Successfully');
 
-      
+
         return redirect('/police');
     }
 
@@ -106,5 +106,17 @@ class PoliceController extends Controller
     public function destroy(Police $police)
     {
         //
+    }
+
+    public function transferpolice(Request $request, User $user)
+    {
+
+
+        $user->station_id = $request->station;
+
+        $user->save();
+
+        toastr()->success('Police Transferred Successfully');
+        return redirect('/police');
     }
 }

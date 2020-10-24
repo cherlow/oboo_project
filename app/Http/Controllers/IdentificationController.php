@@ -99,4 +99,9 @@ class IdentificationController extends Controller
     {
         return view("police.identifiedshow")->with("identification", $identification);
     }
+
+    public function adminidentifiedshow(Identification $identification)
+    {
+        return view("admin.identifiedshow")->with("identification", $identification);
+    }
 }

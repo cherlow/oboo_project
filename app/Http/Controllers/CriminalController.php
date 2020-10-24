@@ -125,8 +125,11 @@ class CriminalController extends Controller
         if (auth()->user()->role == 2) {
 
             return view('police.crimedetails')->with('criminal', $criminal);
-        } else {
+        } else if (auth()->user()->role == 3) {
             return view('user.criminaldetails')->with('criminal', $criminal);
+        } else {
+
+            return view('admin.criminaldetails')->with('criminal', $criminal);
         }
     }
 
@@ -145,7 +148,13 @@ class CriminalController extends Controller
             return redirect('/crimerecords');
         }
 
-        return view('police.crimerecordsshow')->with('criminals', $records);
+        if (auth()->user()->role == 2) {
+
+            return view('police.crimerecordsshow')->with('criminals', $records);
+        } else {
+
+            return view('admin.crimerecordsshow')->with('criminals', $records);
+        }
     }
 
     public function changestatus(Criminal $criminal)
@@ -182,5 +191,14 @@ class CriminalController extends Controller
 
 
         return view("police.crimereportshow")->with("report", $report);
+    }
+
+    public function admincrimereportshow(Report $report)
+    {
+
+
+
+
+        return view("admin.crimereportshow")->with("report", $report);
     }
 }

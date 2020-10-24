@@ -47,21 +47,18 @@
                 </thead>
                 <tbody>
                     @php
-                        $count=1
+                    $count=1
                     @endphp
                     @foreach ($crimes as $crime)
-                        
+
                     <tr>
-                    <th scope="row">{{$count}}</th>
-                    <td>{{$crime->name}}</td>
-                    <td>{{$crime->details}}</td>
-                        <td> <a href="#" data-toggle="modal" data-target="#edit{{$crime->id}}"
-                                class=" text-primary"> <i class="fa fa-edit"></i></a>
-                            <a href="#" class="text-success"> <i class="fa fa-eye"></i></a>
-                            <a href="#" class="text-danger"> <i class="fa fa-trash"></i></a></td>
+                        <th scope="row">{{$count}}</th>
+                        <td>{{$crime->name}}</td>
+                        <td>{{$crime->details}}</td>
+                        <td> <a href="/crimetype/{{ $crime->id }}" class="btn btn-danger">Delete</a></td>
                     </tr>
                     @php
-                        $count++;
+                    $count++;
                     @endphp
                     @endforeach
 

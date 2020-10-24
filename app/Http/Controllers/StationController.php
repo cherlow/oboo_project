@@ -97,4 +97,13 @@ class StationController extends Controller
     {
         //
     }
+
+
+    public function stationdetails(Station $station)
+    {
+
+
+
+        return view("admin.stationdetails")->with("station", $station);
+    }
 }
